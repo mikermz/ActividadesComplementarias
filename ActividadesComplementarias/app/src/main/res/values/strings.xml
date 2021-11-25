@@ -1,7 +1,9 @@
 <resources>
     <string name="app_name">ActividadesComplementarias</string>
     <string name="user_name">User Name</string>
-    <string name="textUserName">textUserName</string>
+    <string name="textUserName">Numero de control</string>
     <string name="password">Password</string>
     <string name="login">Login</string>
+    <string name="forgotpass">¿Olvidaste tu contraseña?</string>
+    <string name="taphere">Pulsa aquí</string>
 </resources>
