@@ -9,8 +9,11 @@ import android.database.sqlite.SQLiteOpenHelper;
 import androidx.annotation.Nullable;
 
 public class ConexionJDB extends SQLiteOpenHelper {
-
     public static final String DB_NAME ="ActividadComplementaria.db";
+    public static final String TABLE_ACTIVIDAD = "Actividad";
+    public static final String TABLE_ALUMNO = "Alumno";
+    public static final String TABLE_DOCENTE = "Docente";
+    public static final String TABLE_USUARIO = "Usuario";
 
     public ConexionJDB(Context context) {
         super(context, DB_NAME, null, 1);
@@ -19,12 +22,19 @@ public class ConexionJDB extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase MyDB) {
-
+        MyDB.execSQL(ActividadCompDAOJDB.CREATE_TABLA_ACTIVIDAD);
+        MyDB.execSQL(AlumnoDAOJDB.CREATE_TABLA_ALUMNO);
+        MyDB.execSQL(DocenteDAOJDB.CREATE_TABLA_DOCENTE);
+        MyDB.execSQL(UsuarioDAOJDB.CREATE_TABLA_DOCENTE);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase MyDB, int i, int i1) {
-
+        MyDB.execSQL("DROP TABLE IF EXISTS ACTIVIDADES");
+        MyDB.execSQL("DROP TABLE IF EXISTS ALUMNOS");
+        MyDB.execSQL("DROP TABLE IF EXISTS DOCENTES");
+        MyDB.execSQL("DROP TABLE IF EXISTS USUARIOS");
+        onCreate(MyDB);
     }
 
     public Boolean insertData(String username, String password){
