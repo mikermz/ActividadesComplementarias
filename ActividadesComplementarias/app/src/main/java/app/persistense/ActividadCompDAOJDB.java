@@ -1,5 +1,16 @@
 package app.persistense;
 
+import android.content.ContentValues;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.widget.Toast;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+import app.model.ActividadComp;
+
 public class ActividadCompDAOJDB {
     public static  final String CAMPO_CLAVEACTIVIDAD = "clave_Actividad";
     public static  final String CAMPO_CLAVEALUMNO = "clave_alumno";
@@ -22,4 +33,85 @@ public class ActividadCompDAOJDB {
             + CAMPO_NOMBREDOCENTE + " TEXT, "
             + CAMPO_SEMESTRE + " INTEGER, "
             + CAMPO_CARRERA + " TEXT)";
+
+    public Long InsertActividad(ActividadComp actividadComp){
+        ConexionJDB conn = new ConexionJDB(this, "ActividadComplementaria.db", null, 1);
+        SQLiteDatabase db = conn.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        Long idResultante;
+
+        values.put(CAMPO_CLAVEACTIVIDAD, actividadComp.getClaveActividad());
+        values.put(CAMPO_CLAVEALUMNO, actividadComp.getClaveAlumno());
+        values.put(CAMPO_CLAVEDOCENTE, actividadComp.getClaveDocente());
+        values.put(CAMPO_NOMBRE, actividadComp.getNombreActividad());
+        values.put(CAMPO_TIPO,actividadComp.getTipoActividad());
+        values.put(CAMPO_FECHAREALIZACION, actividadComp.getFechaRealizacion());
+        values.put(CAMPO_NOMBREALUMNO, actividadComp.getNombreAlumno());
+        values.put(CAMPO_NOMBREDOCENTE, actividadComp.getNombreDocente());
+        values.put(CAMPO_SEMESTRE, actividadComp.getNombreDocente());
+        values.put(CAMPO_CARRERA, actividadComp.getCarrera());
+        idResultante = db.insert("ACTIVIDADES", CAMPO_CLAVEACTIVIDAD, values);
+        return idResultante;
+    }
+
+    public int UpdateActividad(ActividadComp actividadComp){
+        ConexionJDB conn = new ConexionJDB(this, "bd_actividades_complementarias", null, 1);
+        SQLiteDatabase db = conn.getWritableDatabase();
+        String[] parametros = {String.valueOf( actividadComp.getClaveActividad())};
+        ContentValues values = new ContentValues();
+        int idResultante;
+
+        values.put(CAMPO_CLAVEACTIVIDAD, actividadComp.getClaveActividad());
+        values.put(CAMPO_CLAVEALUMNO, actividadComp.getClaveAlumno());
+        values.put(CAMPO_CLAVEDOCENTE, actividadComp.getClaveDocente());
+        values.put(CAMPO_NOMBRE, actividadComp.getNombreActividad());
+        values.put(CAMPO_TIPO,actividadComp.getTipoActividad());
+        values.put(CAMPO_FECHAREALIZACION, actividadComp.getFechaRealizacion());
+        values.put(CAMPO_NOMBREALUMNO, actividadComp.getNombreAlumno());
+        values.put(CAMPO_NOMBREDOCENTE, actividadComp.getNombreDocente());
+        values.put(CAMPO_SEMESTRE, actividadComp.getNombreDocente());
+        values.put(CAMPO_CARRERA, actividadComp.getCarrera());
+        idResultante = db.update("ACTIVIDADES", values, CAMPO_CLAVEACTIVIDAD + "=?", parametros);
+        db.close();
+        return idResultante;
+    }
+
+    public List<ActividadComp> SelectAll(){
+        ConexionJDB conn = new ConexionJDB(this, "bd_actividades_complementarias", null, 1);
+        SQLiteDatabase db = conn.getWritableDatabase();
+        ArrayList<ActividadComp> actividadesComp = new ArrayList();
+        String[] campos = {CAMPO_CLAVEACTIVIDAD,
+                CAMPO_CLAVEALUMNO,
+                CAMPO_CLAVEDOCENTE,
+                CAMPO_NOMBRE,
+                CAMPO_TIPO,
+                CAMPO_FECHAREALIZACION,
+                CAMPO_NOMBREALUMNO,
+                CAMPO_NOMBREDOCENTE,
+                CAMPO_SEMESTRE,
+                CAMPO_CARRERA};
+
+        try {
+            Cursor cursor = db.query("ACTIVIDADES", campos, null,null, null,null,null);
+            for (int i = 0; i<cursor.getCount(); i++){
+                ActividadComp actividadComp = new ActividadComp();
+
+                cursor.move(i);
+                actividadComp.setClaveActividad(Integer.valueOf(cursor.getString(0)));
+                actividadComp.setClaveAlumno(Integer.valueOf(cursor.getString(1)));
+                actividadComp.setClaveDocente(Integer.valueOf(cursor.getString(3)));
+                actividadComp.setNombreActividad(cursor.getString(4));
+                actividadComp.setTipoActividad(cursor.getString(5));
+                actividadComp.setFechaRealizacion(cursor.getString(6));
+                actividadComp.setNombreAlumno(cursor.getString(7));
+                actividadComp.setNombreDocente(cursor.getString(8));
+                actividadComp.setCarrera(cursor.getString(9));
+            }
+            cursor.close();
+            return actividadesComp;
+        }catch (Exception ex){
+            return null;
+        }
+    }
+
 }

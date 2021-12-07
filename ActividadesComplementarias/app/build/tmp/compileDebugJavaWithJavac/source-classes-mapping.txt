@@ -1,0 +1,34 @@
+app/persistense/AlumnoDAOJDB.java
+ app.persistense.AlumnoDAOJDB
+com/example/actividadescomplementarias/TeacherView.java
+ com.example.actividadescomplementarias.TeacherView
+com/example/actividadescomplementarias/StudentView.java
+ com.example.actividadescomplementarias.StudentView
+app/model/ActividadComp.java
+ app.model.ActividadComp
+app/persistense/DocenteDAOJDB.java
+ app.persistense.DocenteDAOJDB
+app/persistense/ActividadCompDAOJDB.java
+ app.persistense.ActividadCompDAOJDB
+com/example/actividadescomplementarias/NewActividad.java
+ com.example.actividadescomplementarias.NewActividad
+app/persistense/ConexionJDB.java
+ app.persistense.ConexionJDB
+app/persistense/Conexion.java
+ app.persistense.Conexion
+app/model/Alumno.java
+ app.model.Alumno
+app/model/Docente.java
+ app.model.Docente
+app/persistense/UsuarioDAOJDB.java
+ app.persistense.UsuarioDAOJDB
+com/example/actividadescomplementarias/AdminView.java
+ com.example.actividadescomplementarias.AdminView
+com/example/actividadescomplementarias/BuildConfig.java
+ com.example.actividadescomplementarias.BuildConfig
+app/model/Usuario.java
+ app.model.Usuario
+com/example/actividadescomplementarias/EditActividad.java
+ com.example.actividadescomplementarias.EditActividad
+com/example/actividadescomplementarias/MainActivity.java
+ com.example.actividadescomplementarias.MainActivity

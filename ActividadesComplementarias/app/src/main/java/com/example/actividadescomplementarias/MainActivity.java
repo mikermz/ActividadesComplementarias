@@ -2,6 +2,7 @@ package com.example.actividadescomplementarias;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -21,11 +22,9 @@ public class MainActivity extends AppCompatActivity {
         password = (TextView) findViewById(R.id.editTextTextPassword);
         loginBtn = (Button) findViewById(R.id.loginBtn);
 
-        loginBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
+        loginBtn.setOnClickListener((view)->{
+            Intent intent = new Intent(this, EditActividad.class);
+            startActivity(intent);
         });
     }
 }

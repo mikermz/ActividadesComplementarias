@@ -15,10 +15,14 @@ public class ConexionJDB extends SQLiteOpenHelper {
     public static final String TABLE_DOCENTE = "Docente";
     public static final String TABLE_USUARIO = "Usuario";
 
-    public ConexionJDB(Context context) {
+    public ConexionJDB(ActividadCompDAOJDB actividadCompDAOJDB, String bd_actividades_complementarias, Context context, int version) {
         super(context, DB_NAME, null, 1);
     }
 
+
+    public ConexionJDB(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
+        super(context, name, factory, version);
+    }
 
     @Override
     public void onCreate(SQLiteDatabase MyDB) {

@@ -8,6 +8,8 @@
     <string name="taphere">Pulsa aquí</string>
     <string name="actividad_complementaria">Actividad Complementaria</string>
     <string name="agregar">Agregar</string>
+    <string name="modificar">Modificar</string>
+    <string name="eliminar">Eliminar</string>
     <string name="tipo_actividad">Tipo Actividad:</string>
     <string name="nombre_de_la_actividad">Nombre de la actividad</string>
     <string name="numero_de_control">Numero de Control</string>
