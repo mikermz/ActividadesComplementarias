@@ -20,15 +20,18 @@ app/model/Alumno.java
  app.model.Alumno
 app/model/Docente.java
  app.model.Docente
+com/example/actividadescomplementarias/TableDynamic.java
+ com.example.actividadescomplementarias.TableDynamic
 app/persistense/UsuarioDAOJDB.java
  app.persistense.UsuarioDAOJDB
-com/example/actividadescomplementarias/AdminView.java
- com.example.actividadescomplementarias.AdminView
-com/example/actividadescomplementarias/BuildConfig.java
- com.example.actividadescomplementarias.BuildConfig
 app/model/Usuario.java
  app.model.Usuario
+com/example/actividadescomplementarias/BuildConfig.java
+ com.example.actividadescomplementarias.BuildConfig
 com/example/actividadescomplementarias/EditActividad.java
  com.example.actividadescomplementarias.EditActividad
+com/example/actividadescomplementarias/AdminView.java
+ com.example.actividadescomplementarias.AdminView
+ com.example.actividadescomplementarias.AdminView$1
 com/example/actividadescomplementarias/MainActivity.java
  com.example.actividadescomplementarias.MainActivity

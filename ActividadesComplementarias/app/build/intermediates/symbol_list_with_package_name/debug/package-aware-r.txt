@@ -1929,7 +1929,7 @@ id bounceStart
 id btAgregar
 id btEliminar
 id btModificar
-id button
+id btnEditarAct
 id buttonPanel
 id cache_measures
 id cancel_button
@@ -2240,6 +2240,7 @@ id submenuarrow
 id submit_area
 id supportScrollUp
 id tabMode
+id tableAdmins
 id tag_accessibility_actions
 id tag_accessibility_clickable_spans
 id tag_accessibility_heading
@@ -2299,6 +2300,8 @@ id tvFecha
 id tvNombreAct
 id tvNumControl
 id tvTipoAct
+id txtLastName
+id txtName
 id unchecked
 id uniform
 id unlabeled

@@ -21,9 +21,9 @@ public class MainActivity extends AppCompatActivity {
         userName = (TextView) findViewById(R.id.userName);
         password = (TextView) findViewById(R.id.editTextTextPassword);
         loginBtn = (Button) findViewById(R.id.loginBtn);
-
+        this.getSupportActionBar().hide();
         loginBtn.setOnClickListener((view)->{
-            Intent intent = new Intent(this, AdminView.class);
+            Intent intent = new Intent(this, EditActividad.class);
             startActivity(intent);
         });
     }

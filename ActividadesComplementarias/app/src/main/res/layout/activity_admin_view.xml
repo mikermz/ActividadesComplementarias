@@ -41,9 +41,10 @@
             android:fillViewport="true">
 
             <TableLayout
-                android:id="@+id/table"
+                android:id="@+id/tableAdmins"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                android:orientation="horizontal" />
         </HorizontalScrollView>
     </ScrollView>
 

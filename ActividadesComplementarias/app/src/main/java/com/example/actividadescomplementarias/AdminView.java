@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TableLayout;
@@ -14,29 +13,26 @@ import java.util.ArrayList;
 
 public class AdminView extends AppCompatActivity {
     private TableLayout tableLayout;
-    private EditText txtName;
-    private EditText txtLastName;
+    private EditText txtName, txtLastName;
     private String[] header={"Id","Nombre","Apellido"};
     private ArrayList<String[]> rows = new ArrayList<>();
-    private TableDynamic tableDynamic;
+    TableDynamic tableDynamic;
     private Button btnEditar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        tableLayout=(TableLayout) findViewById(R.id.table);
-        txtName=(EditText) findViewById(R.id.txtName);
-        txtLastName=(EditText) findViewById(R.id.txtLastName);
+        setContentView(R.layout.activity_admin_view);
         btnEditar=(Button)findViewById(R.id.btnEditarAct);
-
         btnEditar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 save();
             }
         });
-
+        this.tableLayout = (TableLayout) findViewById(R.id.tableAdmins);
+        this.txtName = (EditText) findViewById(R.id.txtName);
+        this.txtLastName = (EditText) findViewById(R.id.txtLastName);
         tableDynamic=new TableDynamic(tableLayout,getApplicationContext());
         tableDynamic.addHeader(header);
         tableDynamic.addData(getClients());
@@ -45,10 +41,7 @@ public class AdminView extends AppCompatActivity {
         tableDynamic.lineColor(Color.BLACK);
         tableDynamic.textColorData(Color.WHITE);
         tableDynamic.textColorHeader(Color.MAGENTA);
-
     }
-
-
 
     public void save(){
         String[] item=new String[]{"5",txtName.getText().toString(),txtLastName.getText().toString()};
@@ -61,6 +54,5 @@ public class AdminView extends AppCompatActivity {
         rows.add(new String[]{"3","Naomi","Espejel"});
         rows.add(new String[]{"4","Lorena","Gallegos"});
         return rows;
-
     }
 }

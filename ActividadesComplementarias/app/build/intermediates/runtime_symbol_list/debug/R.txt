@@ -1928,7 +1928,7 @@ int id bounceStart 0x7f080062
 int id btAgregar 0x7f080063
 int id btEliminar 0x7f080064
 int id btModificar 0x7f080065
-int id button 0x7f080066
+int id btnEditarAct 0x7f0801ef
 int id buttonPanel 0x7f080067
 int id cache_measures 0x7f080068
 int id cancel_button 0x7f080069
@@ -2239,6 +2239,7 @@ int id submenuarrow 0x7f080199
 int id submit_area 0x7f08019a
 int id supportScrollUp 0x7f08019b
 int id tabMode 0x7f08019c
+int id tableAdmins 0x7f0801f3
 int id tag_accessibility_actions 0x7f08019d
 int id tag_accessibility_clickable_spans 0x7f08019e
 int id tag_accessibility_heading 0x7f08019f
@@ -2298,6 +2299,8 @@ int id tvFecha 0x7f0801d4
 int id tvNombreAct 0x7f0801d5
 int id tvNumControl 0x7f0801d6
 int id tvTipoAct 0x7f0801d7
+int id txtLastName 0x7f0801f1
+int id txtName 0x7f0801f2
 int id unchecked 0x7f0801d8
 int id uniform 0x7f0801d9
 int id unlabeled 0x7f0801da
