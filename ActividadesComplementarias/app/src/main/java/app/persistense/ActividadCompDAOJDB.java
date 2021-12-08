@@ -1,6 +1,7 @@
 package app.persistense;
 
 import android.content.ContentValues;
+import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.widget.Toast;
@@ -12,6 +13,7 @@ import java.util.List;
 import app.model.ActividadComp;
 
 public class ActividadCompDAOJDB {
+    Context context;
     public static  final String CAMPO_CLAVEACTIVIDAD = "clave_Actividad";
     public static  final String CAMPO_CLAVEALUMNO = "clave_alumno";
     public static  final String CAMPO_CLAVEDOCENTE = "clave_docente";
@@ -34,8 +36,12 @@ public class ActividadCompDAOJDB {
             + CAMPO_SEMESTRE + " INTEGER, "
             + CAMPO_CARRERA + " TEXT)";
 
+    public ActividadCompDAOJDB(Context context){
+        this.context = context;
+    }
+
     public Long InsertActividad(ActividadComp actividadComp){
-        ConexionJDB conn = new ConexionJDB(this, "ActividadComplementaria.db", null, 1);
+        ConexionJDB conn = new ConexionJDB(this, "ActividadComplementaria.db", context, 1);
         SQLiteDatabase db = conn.getWritableDatabase();
         ContentValues values = new ContentValues();
         Long idResultante;
@@ -55,7 +61,7 @@ public class ActividadCompDAOJDB {
     }
 
     public int UpdateActividad(ActividadComp actividadComp){
-        ConexionJDB conn = new ConexionJDB(this, "bd_actividades_complementarias", null, 1);
+        ConexionJDB conn = new ConexionJDB(this, "ActividadComplementaria.db", context, 1);
         SQLiteDatabase db = conn.getWritableDatabase();
         String[] parametros = {String.valueOf( actividadComp.getClaveActividad())};
         ContentValues values = new ContentValues();
@@ -77,7 +83,7 @@ public class ActividadCompDAOJDB {
     }
 
     public List<ActividadComp> SelectAll(){
-        ConexionJDB conn = new ConexionJDB(this, "bd_actividades_complementarias", null, 1);
+        ConexionJDB conn = new ConexionJDB(this, "ActividadComplementaria.db", context, 1);
         SQLiteDatabase db = conn.getWritableDatabase();
         ArrayList<ActividadComp> actividadesComp = new ArrayList();
         String[] campos = {CAMPO_CLAVEACTIVIDAD,

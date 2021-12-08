@@ -15,7 +15,7 @@ public class EditActividad extends AppCompatActivity {
     Button btnAltas, btnModificar, btnEliminar;
     EditText etNumeroControl, etActividad, etFecha;
     Spinner spTipos;
-    ActividadCompDAOJDB manejador = new ActividadCompDAOJDB();
+    ActividadCompDAOJDB manejador = new ActividadCompDAOJDB(getApplicationContext());
     ActividadComp actividad;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
