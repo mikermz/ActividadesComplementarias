@@ -26,10 +26,15 @@
         android:minHeight="48dp" />
 
     <Button
-        android:id="@+id/btnEditarAct"
+        android:id="@+id/btnGuardar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Guardar" />
+    <Button
+        android:id="@+id/btnEditarAct"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Editar" />
 
     <ScrollView
         android:layout_width="match_parent"

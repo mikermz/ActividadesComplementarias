@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
         loginBtn = (Button) findViewById(R.id.loginBtn);
         this.getSupportActionBar().hide();
         loginBtn.setOnClickListener((view)->{
-            Intent intent = new Intent(this, EditActividad.class);
+            Intent intent = new Intent(this, AdminView.class);
             startActivity(intent);
         });
     }
