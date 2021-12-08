@@ -76,8 +76,8 @@ public class AdminView extends AppCompatActivity {
         rows.add(new String[]{"18241010","Derek Gallego", "ISC","Conferencias"});
         ActividadCompDAOJDB aDAO = new ActividadCompDAOJDB();
         List<ActividadComp> acts;
-        acts = aDAO.SelectAll();
-        /*Log.d("lenght", String.valueOf(acts.size()));
+        /*acts = aDAO.SelectAll();
+        Log.d("lenght", String.valueOf(acts.size()));
         for (ActividadComp actividadComp : acts) {
             rows.add(new String[]{String.valueOf(actividadComp.getClaveAlumno()),
                     String.valueOf(actividadComp.getClaveAlumno()),
