@@ -41,7 +41,7 @@ public class ActividadCompDAOJDB {
     }
 
     public Long InsertActividad(ActividadComp actividadComp){
-        ConexionJDB conn = new ConexionJDB(this, "ActividadComplementaria.db", context, 1);
+        ConexionJDB conn = new ConexionJDB("ActividadComplementaria.db", context, 1);
         SQLiteDatabase db = conn.getWritableDatabase();
         ContentValues values = new ContentValues();
         Long idResultante;
@@ -61,7 +61,7 @@ public class ActividadCompDAOJDB {
     }
 
     public int UpdateActividad(ActividadComp actividadComp){
-        ConexionJDB conn = new ConexionJDB(this, "ActividadComplementaria.db", context, 1);
+        ConexionJDB conn = new ConexionJDB("ActividadComplementaria.db", context, 1);
         SQLiteDatabase db = conn.getWritableDatabase();
         String[] parametros = {String.valueOf( actividadComp.getClaveActividad())};
         ContentValues values = new ContentValues();
@@ -83,7 +83,7 @@ public class ActividadCompDAOJDB {
     }
 
     public List<ActividadComp> SelectAll(){
-        ConexionJDB conn = new ConexionJDB(this, "ActividadComplementaria.db", context, 1);
+        ConexionJDB conn = new ConexionJDB( "ActividadComplementaria.db", context, 1);
         SQLiteDatabase db = conn.getWritableDatabase();
         ArrayList<ActividadComp> actividadesComp = new ArrayList();
         String[] campos = {CAMPO_CLAVEACTIVIDAD,

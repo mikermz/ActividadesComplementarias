@@ -1,5 +1,7 @@
 package app.persistense;
 
+import app.model.Alumno;
+
 public class AlumnoDAOJDB {
     public static  final String CAMPO_CLAVEALUMNO = "clave";
     public static  final String CAMPO_NOMBRE = "nonbre";
@@ -12,4 +14,9 @@ public class AlumnoDAOJDB {
             + CAMPO_CLAVEUSUARIO + " TEXT, "
             + CAMPO_SEMESTRE + " INTEGER, "
             + CAMPO_CARRERA + " TEXT)";
+
+    public Alumno getOne(){
+
+        return null;
+    }
 }

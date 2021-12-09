@@ -14,14 +14,24 @@ public class Usuario {
     private String nombreUsuario;
     private String contra;
     private String tipoUsuario;
+    private long clave;
+
+    public long getClave() {
+        return clave;
+    }
+
+    public void setClave(long clave) {
+        this.clave = clave;
+    }
 
     public Usuario() {
     }
 
-    public Usuario(String nombreUsuario, String contra, String tipoUsuario) {
+    public Usuario(long clave,String nombreUsuario, String contra, String tipoUsuario) {
         this.nombreUsuario = nombreUsuario;
         this.contra = contra;
         this.tipoUsuario = tipoUsuario;
+        this.clave = clave;
     }
 
 

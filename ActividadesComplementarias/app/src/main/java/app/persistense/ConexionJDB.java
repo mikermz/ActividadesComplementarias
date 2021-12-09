@@ -15,7 +15,7 @@ public class ConexionJDB extends SQLiteOpenHelper {
     public static final String TABLE_DOCENTE = "Docente";
     public static final String TABLE_USUARIO = "Usuario";
 
-    public ConexionJDB(ActividadCompDAOJDB actividadCompDAOJDB, String bd_actividades_complementarias, Context context, int version) {
+    public ConexionJDB(String bd_actividades_complementarias, Context context, int version) {
         super(context, DB_NAME, null, 1);
     }
 
@@ -29,7 +29,9 @@ public class ConexionJDB extends SQLiteOpenHelper {
         MyDB.execSQL(ActividadCompDAOJDB.CREATE_TABLA_ACTIVIDAD);
         MyDB.execSQL(AlumnoDAOJDB.CREATE_TABLA_ALUMNO);
         MyDB.execSQL(DocenteDAOJDB.CREATE_TABLA_DOCENTE);
-        MyDB.execSQL(UsuarioDAOJDB.CREATE_TABLA_DOCENTE);
+        MyDB.execSQL(UsuarioDAOJDB.CREATE_TABLA_USUARIO);
+
+
     }
 
     @Override
