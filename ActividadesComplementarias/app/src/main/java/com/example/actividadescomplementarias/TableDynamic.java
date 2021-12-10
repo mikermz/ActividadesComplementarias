@@ -57,7 +57,7 @@ public class TableDynamic {
     }
     private void createDataTable(){
         String info;
-        for (indexR=1;indexR<= header.length;indexR++){
+        for (indexR=1;indexR<= data.size();indexR++){
             newRow();
             for (indexC=0;indexC<header.length;indexC++){
                 newCell();
@@ -113,7 +113,6 @@ public class TableDynamic {
         indexR=0;
         while (indexR<data.size()){
             getRow(indexR++).setBackgroundColor(color);
-
         }
 
     }

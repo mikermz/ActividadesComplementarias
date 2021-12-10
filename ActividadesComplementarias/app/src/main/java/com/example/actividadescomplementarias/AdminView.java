@@ -19,7 +19,7 @@ import app.persistense.ActividadCompDAOJDB;
 
 public class AdminView extends AppCompatActivity {
     private TableLayout tableLayout;
-    private EditText txtName, txtLastName;
+    //private EditText txtName, txtLastName;
     private String[] header={"Numero de Control","Nombre","Carrera","Actividad"};
     private ArrayList<String[]> rows = new ArrayList<>();
     TableDynamic tableDynamic;
@@ -29,24 +29,21 @@ public class AdminView extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_view);
-        btnGuardar=(Button)findViewById(R.id.btnGuardar);
+        //btnGuardar=(Button)findViewById(R.id.btnGuardar);
         btnEditar=(Button)findViewById(R.id.btnEditarAct);
-        btnGuardar.setOnClickListener(new View.OnClickListener() {
+        /*btnGuardar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 save();
             }
-        });
-        btnEditar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(),EditActividad.class);
-                startActivity(intent);
-            }
+        });*/
+        btnEditar.setOnClickListener((view)->{
+            Intent intent = new Intent(this, EditActividad.class);
+            startActivity(intent);
         });
         this.tableLayout = (TableLayout) findViewById(R.id.tableAdmins);
-        this.txtName = (EditText) findViewById(R.id.txtName);
-        this.txtLastName = (EditText) findViewById(R.id.txtLastName);
+        //this.txtName = (EditText) findViewById(R.id.txtName);
+        //this.txtLastName = (EditText) findViewById(R.id.txtLastName);
         tableDynamic=new TableDynamic(tableLayout,getApplicationContext());
         tableDynamic.addHeader(header);
         tableDynamic.addData(getActividades());
@@ -57,7 +54,7 @@ public class AdminView extends AppCompatActivity {
         tableDynamic.textColorHeader(Color.MAGENTA);
     }
 
-    public void save(){
+    /*public void save(){
         String[] item=new String[]{"5",txtName.getText().toString(),txtLastName.getText().toString()};
         tableDynamic.addItems(item);
     }
@@ -70,20 +67,22 @@ public class AdminView extends AppCompatActivity {
         return rows;
     }*/
     private ArrayList<String[]> getActividades(){
-        rows.add(new String[]{"17240446","Pedro Lopez", "ISC","Conferencias"});
-        rows.add(new String[]{"18240912","Juan Magaña", "ISC","Extraescolar"});
-        rows.add(new String[]{"17241656","Luis Prado", "ISC","Servicio Institucional"});
-        rows.add(new String[]{"18241010","Derek Gallego", "ISC","Conferencias"});
         ActividadCompDAOJDB aDAO = new ActividadCompDAOJDB(getApplicationContext());
         List<ActividadComp> acts;
         acts = aDAO.SelectAll();
-        /*Log.d("lenght", String.valueOf(acts.size()));
+        Log.d("length", ""+acts.size());
         for (ActividadComp actividadComp : acts) {
-            rows.add(new String[]{String.valueOf(actividadComp.getClaveAlumno()),
-                    String.valueOf(actividadComp.getClaveAlumno()),
-                    String.valueOf(actividadComp.getCarrera()),
-                    String.valueOf(actividadComp.getNombreActividad())});
-        }*/
+                Log.d("Clave alumno: ", String.valueOf(actividadComp.getClaveAlumno()));
+                Log.d("Nombre alumno: ", String.valueOf(actividadComp.getNombreAlumno()));
+                Log.d("Carrera: ", String.valueOf(actividadComp.getCarrera()));
+                Log.d("Actividad: ", String.valueOf(actividadComp.getNombreActividad()));
+                rows.add(new String[]{String.valueOf(actividadComp.getClaveAlumno()),
+                        String.valueOf(actividadComp.getNombreAlumno()),
+                        String.valueOf(actividadComp.getCarrera()),
+                        String.valueOf(actividadComp.getNombreActividad())});
+        }
+
+
         return rows;
     }
 }

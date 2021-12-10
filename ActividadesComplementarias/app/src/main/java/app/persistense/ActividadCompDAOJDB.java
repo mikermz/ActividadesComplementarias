@@ -36,6 +36,7 @@ public class ActividadCompDAOJDB {
             + CAMPO_SEMESTRE + " INTEGER, "
             + CAMPO_CARRERA + " TEXT)";
 
+
     public ActividadCompDAOJDB(Context context){
         this.context = context;
     }
@@ -83,8 +84,8 @@ public class ActividadCompDAOJDB {
     }
 
     public List<ActividadComp> SelectAll(){
-        ConexionJDB conn = new ConexionJDB( "ActividadComplementaria.db", context, 1);
-        SQLiteDatabase db = conn.getWritableDatabase();
+        ConexionJDB conn = new ConexionJDB(this, "ActividadComplementaria.db", context, 1);
+        SQLiteDatabase db = conn.getReadableDatabase();
         ArrayList<ActividadComp> actividadesComp = new ArrayList();
         String[] campos = {CAMPO_CLAVEACTIVIDAD,
                 CAMPO_CLAVEALUMNO,
@@ -98,26 +99,45 @@ public class ActividadCompDAOJDB {
                 CAMPO_CARRERA};
 
         try {
-            Cursor cursor = db.query("ACTIVIDADES", campos, null,null, null,null,null);
-            for (int i = 0; i<cursor.getCount(); i++){
-                ActividadComp actividadComp = new ActividadComp();
+            Cursor cursor = db.rawQuery("SELECT * FROM " + "ACTIVIDADES", null);
+            if (cursor.moveToFirst()){
+                do {
+                    ActividadComp actividadComp = new ActividadComp();
 
-                cursor.move(i);
-                actividadComp.setClaveActividad(Integer.valueOf(cursor.getString(0)));
-                actividadComp.setClaveAlumno(Integer.valueOf(cursor.getString(1)));
-                actividadComp.setClaveDocente(Integer.valueOf(cursor.getString(3)));
-                actividadComp.setNombreActividad(cursor.getString(4));
-                actividadComp.setTipoActividad(cursor.getString(5));
-                actividadComp.setFechaRealizacion(cursor.getString(6));
-                actividadComp.setNombreAlumno(cursor.getString(7));
-                actividadComp.setNombreDocente(cursor.getString(8));
-                actividadComp.setCarrera(cursor.getString(9));
+                    actividadComp.setClaveActividad(Integer.valueOf(cursor.getString(0)));
+                    actividadComp.setClaveAlumno(Integer.valueOf(cursor.getString(1)));
+                    actividadComp.setClaveDocente(Integer.valueOf(cursor.getString(2)));
+                    actividadComp.setNombreActividad(cursor.getString(3));
+                    actividadComp.setTipoActividad(cursor.getString(4));
+                    actividadComp.setFechaRealizacion(cursor.getString(5));
+                    actividadComp.setNombreAlumno(cursor.getString(6));
+                    actividadComp.setNombreDocente(cursor.getString(7));
+                    actividadComp.setCarrera(cursor.getString(8));
+                    actividadesComp.add(actividadComp);
+                }while (cursor.moveToNext());
             }
+
             cursor.close();
             return actividadesComp;
+
         }catch (Exception ex){
+
             return null;
         }
     }
+
+    /*private void eliminarUsuarios(String claveAct) {
+        ConexionJDB conn = new ConexionJDB(this,
+                "ActividadComplementaria.db", context, 1);
+        SQLiteDatabase db = conn.getReadableDatabase();
+        String[] parametros = {claveAct};
+
+        try {
+            db.delete("ACTIVIDADES", CAMPO_CLAVEACTIVIDAD+ "=?", parametros);
+            db.close();
+        }catch (Exception e)
+            return null;
+        }
+    }*/
 
 }
